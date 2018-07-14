@@ -7,9 +7,9 @@
     4、Actuator：查看程序的内部情况，比如上下文bean、自动配置、环境变量、系统属性、线程状态、GC和内存情况、web请求等；
     5、内置web容器：tomcat、jetty、undertow; 
 ### 配置文件
-application.properties 细粒度管理spring boot的配置 
+    application.properties 细粒度管理spring boot的配置 
 ### 排除传递依赖 
-``` <dependency> 
+```<dependency> 
 ```    <groupId>org.springframework.boot</groupId> 
 ```    <artifactId>spring-boot-starter-web</artifactId> 
 ```    <exclusions> 
@@ -17,9 +17,10 @@ application.properties 细粒度管理spring boot的配置
 ```            <groupId>com.fasterxml.jackson.core</groupId> 
 ```        </exclusion> 
 ```    </exclusions> 
-```</dependency> '
+```</dependency>
 
 ### 覆盖传递依赖（maven总是会使用最近的依赖）
+
 ```<dependency> 
 ```    <groupId>com.fasterxml.jackson.core</groupId>        
 ```    <artifactId>jackson-databind</artifactId>            
