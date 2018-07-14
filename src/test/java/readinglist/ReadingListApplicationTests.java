@@ -11,6 +11,7 @@ public class ReadingListApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		//测试加载的上下文
 	}
 
 }
