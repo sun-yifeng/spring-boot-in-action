@@ -9,23 +9,21 @@
 ### 配置文件
     application.properties 细粒度管理spring boot的配置 
 ### 排除传递依赖 
-```<dependency> 
-```    <groupId>org.springframework.boot</groupId> 
-```    <artifactId>spring-boot-starter-web</artifactId> 
-```    <exclusions> 
-```        <exclusion> 
-```            <groupId>com.fasterxml.jackson.core</groupId> 
-```        </exclusion> 
-```    </exclusions> 
-```</dependency>
-
+    <dependency> 
+       <groupId>org.springframework.boot</groupId> 
+       <artifactId>spring-boot-starter-web</artifactId>
+        <exclusions>
+            <exclusion>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            </exclusion>
+        </exclusions>
+    </dependency>
 ### 覆盖传递依赖（maven总是会使用最近的依赖）
-
-```<dependency> 
-```    <groupId>com.fasterxml.jackson.core</groupId>        
-```    <artifactId>jackson-databind</artifactId>            
-```    <version>2.8.10</version> 
-```</dependency> 
+    <dependency>
+        <groupId>com.fasterxml.jackson.core</groupId>       
+        <artifactId>jackson-databind</artifactId>         
+        <version>2.8.10</version>'
+    </dependency>' 
 
 ### 条件化配置（spring4.0）
     @ConditionalOnBean                配置了某个特定bean       
