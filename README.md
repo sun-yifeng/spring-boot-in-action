@@ -24,8 +24,7 @@
         <artifactId>jackson-databind</artifactId>         
         <version>2.8.10</version>'
     </dependency>' 
-
-### 条件化配置（spring4.0）
+### 条件化配置1（spring4.0）
     @ConditionalOnBean                配置了某个特定bean       
     @ConditionalOnMissingBean         没有配置特定bean         
     @ConditionalOnClass               Classpath有指定的类      
@@ -37,7 +36,20 @@
     @ConditionalOnProperty            指定的配置有明确的值       
     @ConditionalOnResource            Classpath里面有指定的资源 
     @ConditionalOnWebApplication      这是web程序              
-    @ConditionalOnNotWebApplication   不是web程序              
+    @ConditionalOnNotWebApplication   不是web程序  
+### 条件化配置2（Profile）
+    不同环境，配置文件不一样，可以使用Spring3.1的Profile(条件化配置),比如：
+    @Profile("production")
+    @Configuration
+    @EnableWebSecurity
+    public class SecurityConfig extends WebSecurityConfigurerAdapter{
+        //
+    }  
+    这里的注解@Profile("production")要求application.properties的属性为true才能使用该安全配置：
+    spring.profiles.active.production=true;
+    
+### 自动配置
+要覆盖spring boot的自动配置，需要编写一个显示的配置，如SecurityConfig。                
 
 
 

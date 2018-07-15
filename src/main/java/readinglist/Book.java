@@ -4,20 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-/**
- * 实体类
- * */
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
 
-	//实体类id
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-
 	private Long id;
-	private String reader;
+	
+	@ManyToOne
+	private Reader reader;
 	private String isbn;
 	private String title;
 	private String author;
@@ -31,11 +28,11 @@ public class Book {
 		this.id = id;
 	}
 
-	public String getReader() {
+	public Reader getReader() {
 		return reader;
 	}
 
-	public void setReader(String reader) {
+	public void setReader(Reader reader) {
 		this.reader = reader;
 	}
 
