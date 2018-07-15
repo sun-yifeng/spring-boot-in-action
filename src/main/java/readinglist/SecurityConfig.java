@@ -19,25 +19,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http
       .authorizeRequests()
-      .antMatchers("/").access("hasRole('READER')")
-      .antMatchers("/**").permitAll()
+        .antMatchers("/").access("hasRole('READER')")
+        .antMatchers("/**").permitAll()
       .and()
       .formLogin()
-      .loginPage("/login")
-      .failureUrl("/login?error=true");
+        .loginPage("/login")
+        .failureUrl("/login?error=true");
   }
   
   @Override
-  protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-      auth.userDetailsService(new UserDetailsService() {
-          @Override
-          public UserDetails loadUserByUsername(String username)
-              throws UsernameNotFoundException {
-          UserDetails userDetails = readerRepository.findOne(username);
-          if (userDetails != null) {
-              return userDetails;
+  protected void configure(
+              AuthenticationManagerBuilder auth) throws Exception {
+    auth
+      .userDetailsService(new UserDetailsService() {
+        @Override
+        public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException {
+          Reader reader = readerRepository.findOne(username);
+          if (reader != null) {
+            return reader;
+          } else {
+            throw new UsernameNotFoundException("Could not find user: " + username);
           }
-          throw new UsernameNotFoundException("User '" + username + "' not found.");
         }
       });
   }

@@ -14,19 +14,17 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 @RequestMapping("/")
-@ConfigurationProperties("amazon") //属性前缀
+@ConfigurationProperties("amazon")
 public class ReadingListController {
 
 	private ReadingListRepository readingListRepository;
-	//自定义的属性bean
-    private AmazonProperties amazonConfig;
+  private AmazonProperties amazonConfig;
 
 	@Autowired
 	public ReadingListController(ReadingListRepository readingListRepository,
-								 AmazonProperties amazonConfig) {
+	    AmazonProperties amazonConfig) {
 		this.readingListRepository = readingListRepository;
-		//注入属性
-        this.amazonConfig = amazonConfig;
+    this.amazonConfig = amazonConfig;
 	}
 	
 	@RequestMapping(method=RequestMethod.GET, value="/fail")
@@ -47,7 +45,6 @@ public class ReadingListController {
 		if (readingList != null) {
 			model.addAttribute("books", readingList);
 			model.addAttribute("reader", reader);
-			//model中添加associate id
 			model.addAttribute("amazonID", amazonConfig.getAssociateId());
 		}
 		return "readingList";
