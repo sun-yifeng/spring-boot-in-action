@@ -104,6 +104,13 @@
     2、maven
     <packaging>war<packaging/>
     3、打包时需要将web.xml等绑定到web容器，见ReadingListServletInitializer.java
+       继承SpringBootServletInitializer
+    4、部署到云端
+### 附录A 开发工具       
+### 附录B 起步依赖(50+)
+### 附录C 配置属性(300+)
+### 附录B Spring Boot的传递依赖
+       
            
 
 
