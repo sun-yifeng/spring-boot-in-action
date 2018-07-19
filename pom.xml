@@ -101,7 +101,7 @@
 
 	<build>
 		<plugins>
-			<!--springboot插件：将项目打成一个可以执行的超级jar（uber-jar）,可以使用命令java -jar运行 -->
+			<!--插件的作用：将项目打成一个可以执行的超级jar（uber-jar）,可以使用命令java -jar运行 -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
